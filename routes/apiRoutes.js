@@ -8,17 +8,16 @@ module.exports = function (app) {
                 res.json(data)
             })
             .catch(err => {
-                res.json(err)
-            })
+                res.status(400).json(err);
+            });
     });
 
     app.post("/api/workouts", function (req, res) {
         Workout.create({})
             .then(data => res.json(data))
             .catch(err => {
-                console.log("err", err)
-                res.json(err)
-            })
+                res.status(400).json(err);
+            });
     });
 
     app.put("/api/workouts/:id", ({ body, params }, res) => {
@@ -29,8 +28,7 @@ module.exports = function (app) {
         )
             .then(data => res.json(data))
             .catch(err => {
-                console.log("err", err)
-                res.json(err)
-            })
+                res.status(400).json(err);
+            });
     });
 }
