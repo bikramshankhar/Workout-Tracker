@@ -7,4 +7,8 @@
  * https://workout-tracker17.herokuapp.com
 
 
+ ## Screen Shot
+ <img src="workoutTraker.png">
+
+
 
