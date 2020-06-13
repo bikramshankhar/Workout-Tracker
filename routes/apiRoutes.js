@@ -20,14 +20,21 @@ module.exports = function (app) {
             });
     });
 
-    app.put("/api/workouts/:id", ({ body, params }, res) => {
-        Workout.findByIdAndUpdate(
-            params.id,
-            { $push: { exercises: body } },
-        )
-            .then(data => res.json(data))
+    app.put("/api/workouts/:id", (req, res) => {
+        Workout.findOneAndUpdate(
+            { _id: req.params.id },
+            {
+                $inc: { totalDuration: req.body.duration },
+                $push: { exercises: req.body }
+            },
+            
+            )
+            .then(data => {
+                res.json(data)
+            })
             .catch(err => {
-                res.status(400).json(err);
-            });
+                res.json(err)
+            })
+
     });
 }
