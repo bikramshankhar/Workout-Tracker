@@ -8,7 +8,7 @@
 
 
  ## Screen Shot
- <img src="workoutTraker.png">
+ <img src="workoutTracker.png">
 
 
 
